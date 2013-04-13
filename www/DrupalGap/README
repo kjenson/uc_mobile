@@ -1,0 +1,126 @@
+DrupalGap bridges the gap between Drupal and mobile device applications. This
+open source project is built around PhoneGap and utilizes the power of JQuery,
+JQuery Mobile and of course Drupal. 
+
+Project Homepage: http://www.drupalgap.org
+
+|=================================================|
+| Mobile Application Features for Drupal Websites |
+|=================================================|
+
+ + Access  Content
+ + Register User Account
+ + User Login, Logout and Account Update
+ + Create, Retrieve, Update and Delete - (C.R.U.D.)
+   - Content
+   - Comments
+
+DrupalGap consists of two parts:
+
+|=========================================|
+| DrupalGap - Drupal Module (6.x and 7.x) |
+|=========================================|
+
+http://drupal.org/project/drupalgap
+
+This module allows mobile applications to utilize the power of Drupal websites.
+DrupalGap exposes Drupal's content and user features to mobile devices through
+the DrupalGap mobile application, or through your own custom mobile application.
+Leveraging the power of existing Drupal modules such as Views and Services,
+DrupalGap integrates mobile device applications with Drupal.
+
+|================================|
+| DrupalGap - Mobile Application |
+|================================|
+
+https://github.com/signalpoint/DrupalGap
+
+The DrupalGap mobile application can be installed on a mobile device and connect
+to Drupal websites running the DrupalGap module. Once connected, the mobile
+device can utilize that Drupal site's content and user features. Developers can
+use the open source DrupalGap project on GitHub to create custom mobile
+applications in PhoneGap that communicate with their Drupal websites.
+
+The mobile application is available in the Android marketplace.
+
+https://market.android.com/details?id=com.drupalgap
+
+|=======================|
+| Who is DrupalGap For? |
+|=======================|
+
+1. Mobile Application Users
+
+Installing the DrupalGap mobile application on a mobile device allows a user's
+device to integrate with Drupal powered websites that have the DrupalGap module
+installed.
+
+2. Mobile Application Developers
+
+Mobile application developers can use the open source DrupalGap framework to get
+a jump start on building custom mobile applications in PhoneGap that utilize the
+power of their Drupal websites.
+
+|==============================================|
+| Installation: DrupalGap + PhoneGap + Android |
+|==============================================|
+
+0. Enable the DrupalGap Module on your Drupal Site
+
+1. Complete the PhoneGap Getting Started Guide for Android
+
+   http://docs.phonegap.com/en/2.2.0/guide_getting-started_index.md.html
+
+2. Download the files needed for the latest version of jQuery & jQueryMobile,
+   and save each file to PhoneGap's assets/www directory:
+
+   a. http://code.jquery.com/jquery-1.8.3.min.js
+   b. http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js
+   c. http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css
+	
+3. Download the jQueryMobile zip file and extract the images directory from it
+   into PhoneGap's assets/www directory.
+   
+   assets/www/images
+   
+   This is different than the img directory that is created by PhoneGap's
+   getting started guide.
+
+4. Download DrupalGap and extract its contents to PhoneGap's assets/www
+directory so drupalgap.js is located here:
+
+   assets/www/DrupalGap/drupalgap.js
+
+   Download Link: https://github.com/signalpoint/DrupalGap/tags
+
+5. Replace the assets/www/index.html file with the default.index.html file
+   that comes with DrupalGap:
+   
+   assets/www/DrupalGap/default.index.html => assets/www/index.html
+   
+6. Specify your Drupal site path (with NO trailing slash) in drupalgap.js,
+   for example:
+
+   'site_path':'http://www.drupalgap.org'
+   
+7. Copy the contents of DrupalGap/pages and DrupalGap/scripts to the assets/www
+   folder so these files (and many more) exist:
+   
+   assets/www/dashboard.html
+   assets/www/dashboard.js
+
+8. Run your new Android Application!
+
+===================================
+
+From here you'll have a great start to building a mobile application that
+integrates with your Drupal website.
+
+|======================================================|
+| Developing with Localhost Drupal & Android Emulators |
+|======================================================|
+
+If you are developing in a localhost environment, and normally access your
+Drupal site in a web browser through e.g. http://localhost/my_drupal_site, you
+will most likely need to connect to http://10.0.2.2/my_drupal_site inside the
+Android emulator to communicate with your localhost Drupal install!
