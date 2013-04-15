@@ -1,3 +1,9 @@
+var content_types = new Array();
+content_types["journal"] = "Whitleys Journal";
+content_types["diary"] = "Anne's Diary";
+content_types["revelations_show"] = "Revelations";
+content_types["dreamland_show"] = "Dreamland";
+
 $('#drupalgap_node').on('pagebeforeshow', function(){
 	$('#node_comments').hide();
 	$('#comment_add').hide();
@@ -7,7 +13,7 @@ $('#drupalgap_node').on('pageshow', function(){
 	drupalgap.services.node.retrieve.call({
 		'nid':drupalgap.node.nid,
 		'success':function(node){
-			$('#node_type').html(node.type);
+			$('#node_type').html(content_types[node.type]);
 			$('#node_title').html(node.title);
 			$('#node_content').html(node.content);
 			if (node.uid == drupalgap.user.uid) {

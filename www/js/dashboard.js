@@ -1,5 +1,6 @@
 $('#drupalgap_dashboard').on('pagebeforeshow',function(){
-	try {
+	/*
+    try {
 		// Hide both nav bars, then figure out which one to show.
 		$('#navbar_anonymous').hide();
     	$('#navbar_authenticated').hide();
@@ -25,6 +26,7 @@ $('#drupalgap_dashboard').on('pagebeforeshow',function(){
 	catch (error) {
 		alert("drupalgap_dashboard - " + error);
 	}
+    */
 });
 
 $('#drupalgap_dashboard').on('pageshow', function(){
@@ -40,7 +42,8 @@ $('#drupalgap_dashboard').on('pageshow', function(){
 		});
 	}*/
 	// Grab some recent content and display it.
-	drupalgap.views_datasource.call({
+	/*      
+    drupalgap.views_datasource.call({
 		'path':'drupalgap/views_datasource/drupalgap_content',
 		'success':function(data) {
 			$("#dashboard_content_list").html("");
@@ -50,12 +53,42 @@ $('#drupalgap_dashboard').on('pageshow', function(){
 			$("#dashboard_content_list").listview("destroy").listview();
 		},
 	});
+    */
 });
 
-$('#dashboard_content_list a').live('click',function(){
+$('.uc-content-selector').live('click', function () {
+    var content_type = $(this).attr('content-type');
+    var content_type_title = $(this).html();
+    
+    drupalgap.views_datasource.call({
+		'path':'drupalgap/views_datasource/drupalgap_content/' + content_type,
+		'success':function(data) {
+			$("#dashboard_content_list").hide();
+            $('#uc_content_list').html('');
+           
+			$.each(data.nodes, function(index, object){	
+				$("#uc_content_list").append($("<li></li>",{"html":"<a href='node.html' id='" + object.node.nid + "'>" + object.node.title + "</a>", "data-filtertext" : object.node.title}));
+			});
+            
+            $('#list-back-link').show();
+            $('#main-header h1').html(content_type_title);
+			$("#uc_content_list").listview("destroy").listview().show();
+		}
+	});
+});
+
+$('#uc_content_list a').live('click',function(){
 	drupalgap.node = {'nid':$(this).attr('id')};
 });
 
+$('#list-back-link').live('click', function () {
+    $(this).hide();
+    
+    $('#main-header h1').html('Home');
+    $("#dashboard_content_list").show();
+    $('#uc_content_list').hide().html('');      
+});
+/*
 $('#my_account').on('click', function(){
 	drupalgap.account.uid = drupalgap.user.uid;
 });
@@ -71,3 +104,4 @@ $('#logout').on('click', function(){
 		}
 	});
 });
+*/

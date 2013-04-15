@@ -1,29 +1,23 @@
 <div data-role="page" id="drupalgap_dashboard">
-  <script type="text/javascript" charset="utf-8" src="js/dashboard.js"></script>
-  <div data-role="header">
-    <h1>Unknown Country</h1>
-  </div><!-- header -->
-  <div data-role="header" id="user_navbar">
-      <h2></h2>
-      <div data-role="navbar" id="navbar_anonymous">
-       <ul>
-         <li><a href="user_login.html">Login</a></li>
-         <li><a href="user_register.html">Register</a></li>
-       </ul>
-     </div><!-- navbar -->
-    <div data-role="navbar" id="navbar_authenticated">
-      <ul>
-        <li><a href="user.html" id="my_account">My Account</a></li>
-        <li><a href="#" id="logout">Logout</a></li>
-      </ul>
-    </div><!-- navbar -->
-   </div><!-- header -->
-   <div data-role="content">
-     <div class="ui-bar ui-bar-c"><h2>Latest News</h2></div>
-     <ul data-role="listview" data-inset="true" id="dashboard_content_list"></ul>
-   </div><!-- content -->
-   <div data-role="content">
-   	 <a href="users.html" data-role="button" id="dashboard_users" style="display: none;">Users</a>
-     <a href="taxonomy_vocabularies.html" data-role="button" id="dashboard_vocabularies" style="display: none;">Vocabularies</a>
-   </div><!-- content -->
+    <script type="text/javascript" charset="utf-8" src="js/dashboard.js"></script>
+    <div data-role="header" id="main-header">
+        <h1>Home</h1>
+    </div>
+    <div data-role="header" class="mast-header">
+
+    </div><!-- header -->
+    <div data-role="content">     
+        <ul data-role="listview" data-inset="true" id="dashboard_content_list">
+            <li><a href="#" class="uc-content-selector" content-type="whitleys_journal">Whitleys Journal</a></li>
+            <li><a href="#" class="uc-content-selector" content-type="annes_diary">Anne's Diary</a></li>
+            <li><a href="#" class="uc-content-selector" content-type="dreamland">Dreamland</a></li>
+            <li><a href="#" class="uc-content-selector" content-type="revelations">Revelations</a></li>
+        </ul>
+        
+        <a href="#" id="list-back-link" data-role="button" data-icon="back" data-iconpos="left" data-theme="b" data-inline="true">Back</a>
+        
+        <ul data-role="listview" data-inset="true" data-filter="true" id="uc_content_list" data-filter-placeholder="Search Title...">
+            
+        </ul>
+    </div><!-- content -->   
 </div><!-- page -->
