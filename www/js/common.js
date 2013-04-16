@@ -5,3 +5,4 @@ content_types["revelations"] = "Revelations";
 content_types["dreamland"] = "Dreamland";
 
 var content_type_id = null;
+

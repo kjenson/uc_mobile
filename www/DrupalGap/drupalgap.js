@@ -31,7 +31,7 @@ var drupalgap = {
 	  'options':{ /* these are set by drupalgap_api_default_options() */ },
 	  'call':function(options){
 		  try {
-			  // Get the default api options, then adjust to the caller's options if they are present.
+			  // Get the default api options, then adjust to the caller's options if they are present.             
 			  var api_options = drupalgap_api_default_options();
 			  if (options.type) { api_options.type = options.type; }
 			  if (options.async) { api_options.async = options.async; }
@@ -1096,6 +1096,7 @@ var drupalgap = {
 			  var api_options = drupalgap_chain_callbacks(drupalgap.views_datasource.options, options);
 			  api_options.endpoint = '';
 			  api_options.path = options.path;
+              //api_options.data = options.data;
 			  drupalgap.api.call(api_options);
 		  }
 		  catch (error) {
@@ -1467,7 +1468,7 @@ function drupalgap_service_resource_extract_results(options) {
 		}
 	}
 	catch (error) {
-		alert('drupalgap_service_resource_extract_results - ' + error);
+		//alert('drupalgap_service_resource_extract_results - ' + error);
 		return null;
 	}
 }

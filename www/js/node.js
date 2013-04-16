@@ -10,9 +10,10 @@ $('#drupalgap_node').on('pageshow', function(){
 			$('#node_type').html(content_types[content_type_id]);
 			$('#node_title').html(node.title);
 			$('#node_content').html(node.content);
-			if (node.uid == drupalgap.user.uid) {
-				$('#node_edit').show();
-			}
+			
+            //if (node.uid == drupalgap.user.uid) {
+			//	$('#node_edit').show();
+			//}
 			
 			// Depending on the node's comment settings, set the appropriate
 			// visibility on the comment button.
