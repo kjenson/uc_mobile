@@ -1,9 +1,3 @@
-var content_types = new Array();
-content_types["journal"] = "Whitleys Journal";
-content_types["diary"] = "Anne's Diary";
-content_types["revelations_show"] = "Revelations";
-content_types["dreamland_show"] = "Dreamland";
-
 $('#drupalgap_node').on('pagebeforeshow', function(){
 	$('#node_comments').hide();
 	$('#comment_add').hide();
@@ -13,7 +7,7 @@ $('#drupalgap_node').on('pageshow', function(){
 	drupalgap.services.node.retrieve.call({
 		'nid':drupalgap.node.nid,
 		'success':function(node){
-			$('#node_type').html(content_types[node.type]);
+			$('#node_type').html(content_types[content_type_id]);
 			$('#node_title').html(node.title);
 			$('#node_content').html(node.content);
 			if (node.uid == drupalgap.user.uid) {
@@ -23,7 +17,7 @@ $('#drupalgap_node').on('pageshow', function(){
 			// Depending on the node's comment settings, set the appropriate
 			// visibility on the comment button.
 			// 1 = Closed, 2 = Open
-			switch (node.comment) {
+			/*switch (node.comment) {
 				case '1':
 					if (node.comment_count > 0) { $('#node_comments').show(); }
 					break;
@@ -35,11 +29,12 @@ $('#drupalgap_node').on('pageshow', function(){
 			if ((node.comment == 1 || node.comment == 2) && node.comment_count > 0) {
 				var view_comment_text = 'View ' + node.comment_count + ' ' + drupalgap_format_plural(node.comment_count, 'Comment', 'Comments');
 				$('#node_comments span').html(view_comment_text);
-			}
-		},
+			}*/
+		}
 	});
 });
 
+/*
 $('#node_edit').on('click', function(){
 	drupalgap.node_edit.nid = drupalgap.node.nid;
 	$.mobile.changePage('node_edit.html');
@@ -54,4 +49,4 @@ $('#node_comments').on('click', function(){
 $('#comment_add').on('click', function(){
 	$.mobile.changePage('comment_edit.html');
 	return false;
-});
+}); */
