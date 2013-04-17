@@ -1230,12 +1230,12 @@ function drupalgap_api_default_options() {
 				extra_msg = jqXHR.responseText;
 			}
 			navigator.notification.alert(
-				textStatus + ' (' + errorThrown + ') ' + extra_msg,
+				errorThrown,
 				function(){},
-				'DrupalGap API Error',
+                'Error',
 				'OK'
 			);
-		},
+		}
 	};
 	return default_options;
 }

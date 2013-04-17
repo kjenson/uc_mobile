@@ -29,7 +29,7 @@ $('#user_login_submit').on('click',function() {
 		  'pass':pass,
 		  'success':function(result){
 			  $.mobile.changePage("dashboard.html");
-		  },
+		  }
 	  });
 	}
 	catch (error) {
