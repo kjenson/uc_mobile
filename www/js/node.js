@@ -10,7 +10,11 @@ $('#drupalgap_node').on('pageshow', function(){
 			$('#node_type').html(content_types[content_type_id]);
 			$('#node_title').html(node.title);
 			$('#node_content').html(node.content);
-			
+
+            if(node.field_dreamland_stream.length > 0 && drupalgap.user.uid) {
+                if(node.field_dreamland_stream[0].value)
+                    initAudioPlayer(node.field_dreamland_stream[0].value);
+            }
             //if (node.uid == drupalgap.user.uid) {
 			//	$('#node_edit').show();
 			//}
@@ -35,19 +39,18 @@ $('#drupalgap_node').on('pageshow', function(){
 	});
 });
 
-/*
-$('#node_edit').on('click', function(){
-	drupalgap.node_edit.nid = drupalgap.node.nid;
-	$.mobile.changePage('node_edit.html');
-	return false;
-});
+function initAudioPlayer(src) {
+    $("#playaudio").live('tap', function() {        
+        playAudio(src);
+    });
 
-$('#node_comments').on('click', function(){
-	$.mobile.changePage('node_comments.html');
-	return false;
-});
+    $("#pauseaudio").live('tap', function() {
+        pauseAudio();
+    });
 
-$('#comment_add').on('click', function(){
-	$.mobile.changePage('comment_edit.html');
-	return false;
-}); */
+    $("#stopaudio").live('tap', function() {
+        stopAudio();
+    });
+
+    $('#audio-player').show();
+}

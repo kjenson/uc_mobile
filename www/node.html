@@ -11,6 +11,18 @@
     <div data-role="header" data-theme="b">
       <h1 id="node_title">&nbsp;</h1>
     </div><!-- /header -->
+    <div data-role="content" id="audio-player" data-theme="a">        
+        <a href="#" data-role="button" data-icon="play" data-iconpos="notext" data-inline="true" id="playaudio"></a>
+        <a href="#" data-role="button" data-icon="pause" data-iconpos="notext" data-inline="true" id="pauseaudio"></a>
+        <a href="#" data-role="button" data-icon="stop" data-iconpos="notext" data-inline="true" id="stopaudio"></a>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a> Current: <span id="audio_position">0 sec</span></a></li>
+                <li><a>Total: <span id=media_dur>0</span> sec</a></li>
+            </ul>
+        </div>
+    </div>
     <div data-role="content" id="node_content"></div><!-- /content -->
     <!--div data-role="content">
     	<a href="#" data-role='button' id='node_comments' data-theme="b"><span>&nbsp;</span></a>
