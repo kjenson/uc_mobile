@@ -11,9 +11,13 @@ $('#drupalgap_node').on('pageshow', function(){
 			$('#node_title').html(node.title);
 			$('#node_content').html(node.content);
 
-            if(node.field_dreamland_stream.length > 0 && drupalgap.user.uid) {
-                if(node.field_dreamland_stream[0].value)
-                    initAudioPlayer(node.field_dreamland_stream[0].value);
+            if(node.field_dreamland_mp3.length > 0 && drupalgap.user.uid) {
+                if(node.field_dreamland_mp3[0].filepath)   {                                     
+                    //initAudioPlayer(sitename + node.field_dreamland_mp3[0].filepath);
+                    $('#audio-player audio').attr('src', sitename + node.field_dreamland_mp3[0].filepath);
+                    $('#audio-player audio').load();
+                    $('#audio-player').show();
+                }
             }
             //if (node.uid == drupalgap.user.uid) {
 			//	$('#node_edit').show();

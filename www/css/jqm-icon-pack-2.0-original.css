@@ -29,6 +29,12 @@
 	background-repeat: no-repeat;
 }
 
+.ui-icon-loading {
+    background: url('images/ajax-loader.gif');
+    background-size: 46px 46px;
+}
+
+
 /* HD/"retina" sprite
 -----------------------------------------------------------------------------------------------------------*/
 
