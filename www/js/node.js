@@ -10,35 +10,36 @@ $('#drupalgap_node').on('pageshow', function(){
 			$('#node_type').html(content_types[content_type_id]);
 			$('#node_title').html(node.title);
 			$('#node_content').html(node.content);
-
-            if(node.field_dreamland_mp3.length > 0 && drupalgap.user.uid) {
-                if(node.field_dreamland_mp3[0].filepath)   {                                     
-                    //initAudioPlayer(sitename + node.field_dreamland_mp3[0].filepath);
-                    $('#audio-player audio').attr('src', sitename + node.field_dreamland_mp3[0].filepath);
-                    $('#audio-player audio').load();
-                    $('#audio-player').show();
+            
+            if(node.field_dreamland_stream.length > 0 && drupalgap.user.uid) {                
+                if(node.field_dreamland_stream[0].value) {
+                    var src = node.field_dreamland_stream[0].value;
+                    
+                    initAudioPlayer(src);                    
                 }
             }
-            //if (node.uid == drupalgap.user.uid) {
-			//	$('#node_edit').show();
-			//}
-			
-			// Depending on the node's comment settings, set the appropriate
-			// visibility on the comment button.
-			// 1 = Closed, 2 = Open
-			/*switch (node.comment) {
-				case '1':
-					if (node.comment_count > 0) { $('#node_comments').show(); }
-					break;
-				case '2':
-					if (node.comment_count > 0) { $('#node_comments').show(); }
-					$('#comment_add').show();
-					break;
-			}
-			if ((node.comment == 1 || node.comment == 2) && node.comment_count > 0) {
-				var view_comment_text = 'View ' + node.comment_count + ' ' + drupalgap_format_plural(node.comment_count, 'Comment', 'Comments');
-				$('#node_comments span').html(view_comment_text);
-			}*/
+            
+            if(node.field_dreamland_mp3 != null &&  node.field_dreamland_mp3.length > 0 && drupalgap.user.uid) {
+                if(node.field_dreamland_mp3[0].filepath) {
+                    $('#high-quality-mp3').attr('href', sitename + node.field_dreamland_mp3[0].filepath);
+                } else {
+                    $('#high-quality-mp3').hide();
+                }
+            } else {
+                $('#high-quality-mp3').hide();
+            }
+
+            if(node.field_dreamland_mp3_low != null && node.field_dreamland_mp3_low.length > 0 && drupalgap.user.uid) {
+                if(node.field_dreamland_mp3_low[0].filepath) {
+                    $('#low-quality-mp3').attr('href', sitename + node.field_dreamland_mp3_low[0].filepath);                    
+                } else {
+                    $('#low-quality-mp3').hide();
+                }
+            } else {
+                $('#low-quality-mp3').hide();
+            }
+
+            $('#node-mp3-files').show();
 		}
 	});
 });
@@ -54,7 +55,5 @@ function initAudioPlayer(src) {
 
     $("#stopaudio").live('tap', function() {
         stopAudio();
-    });
-
-    $('#audio-player').show();
+    });    
 }

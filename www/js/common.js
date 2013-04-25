@@ -1,4 +1,6 @@
 var content_types = new Array();
+content_types["news"] = "News";
+content_types["out_there"] = "Out There";
 content_types["whitleys_journal"] = "Whitleys Journal";
 content_types["annes_diary"] = "Anne's Diary";
 content_types["revelations"] = "Revelations";

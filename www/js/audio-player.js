@@ -5,7 +5,6 @@ var mediaTimer = null;
 var dur = -1;
 // need to know when paused or not
 var is_paused = false;
-
 //Set audio position on page
 function setAudioPosition(position) {
     $("#audio_position").html(position + " sec");
@@ -16,20 +15,23 @@ function onSuccess() {
     setAudioPosition(dur);
     clearInterval(mediaTimer);
     mediaTimer = null;
-    my_media = null;
+    //my_media = null;
     is_paused = false;
     dur = -1;
+    
+    $('#audio-player').show();
 }
 
 //onError Callback
 function onError(error) {
-    alert('code: '    + error.code    + '\n' +
+    /* alert('code: '    + error.code    + '\n' +
             'message: ' + error.message + '\n');
     clearInterval(mediaTimer);
     mediaTimer = null;
     my_media = null;
     is_paused = false;
-    setAudioPosition("0");
+    setAudioPosition("0"); */
+    $('#audio-player').hide();
 }
 
 function playAudio(src) {
@@ -39,10 +41,8 @@ function playAudio(src) {
         $("#media_dur").html("0");
         $("#audio_position").html("Loading...");
 
-        // Create Media object from src
         my_media = new Media(src, onSuccess, onError);
-        // Play audio
-        //alert('Playing Audio');
+        
         my_media.play();
     } else {
         if (is_paused) {
