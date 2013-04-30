@@ -11,11 +11,12 @@ $('#drupalgap_node').on('pageshow', function(){
 			$('#node_title').html(node.title);
 			$('#node_content').html(node.content);
             
-            if(node.field_dreamland_mp3 != null && node.field_dreamland_mp3[0].length > 0 && drupalgap.user.uid) {
-                if(node.field_dreamland_mp3[0].filepath) {
-                    var src = sitename + node.field_dreamland_mp3[0].filepath;
-                    
-                    initAudioPlayer(src);                    
+            if(node.field_dreamland_stream != null && node.field_dreamland_stream.length > 0 && drupalgap.user.uid) {
+                if(node.field_dreamland_stream[0].value) {
+                    //var src = node.field_dreamland_stream[0].value;
+                    var src = 'http://www.strieber.com/streaming/042613.mp3';
+                   
+                    initAudioPlayer(src);                         
                 }
             }
             /*
