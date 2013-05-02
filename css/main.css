@@ -1,0 +1,14 @@
+.mast-header {
+    background-image: url(../img/masthead_blue.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 90px;
+}
+
+#more-link, #login-btn, #logout-btn, #audio-player, #node-mp3-files {
+    display: none;
+}
+
+#node_content img {
+    margin: 5px;
+}
