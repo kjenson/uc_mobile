@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id = "com.phonegap.unknowncountry"
+        id = "org.apache.cordova.UCDrupalGap"
         version = "1.0.0">
 
     <name>Unknown Country</name>
@@ -12,8 +12,8 @@
         A mobile app for the website UnknownCountry.com
     </description>
 
-    <author href="http://daxpanganiban.com" email="dax1216@gmail.com">
-        Dax Panganiban
+    <author href="http://www.gumbootwebmobile.com" email="ken@gumbootwebmobile.com">
+        Ken Jenson
     </author>
 
     <!--
