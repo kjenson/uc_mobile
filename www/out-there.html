@@ -1,0 +1,44 @@
+<div data-role="page" id="drupalgap_node">
+  <script type="text/javascript" charset="utf-8" src="js/out-there.js"></script>
+    <div data-role="header" id="main-header">
+        <a href="dashboard.html" data-role="button" data-icon="home" data-iconpos="notext" data-inline="true" class="ui-btn-left"></a>
+        <h1></h1>
+    </div><!-- /header -->
+    <div data-role="header" class="mast-header">
+
+    </div>
+    <div data-role="header" data-theme="b">
+      <h1 id="node_title">Submit an Out There Story</h1>
+    </div><!-- /header -->
+    <div data-role="content">
+		<div>
+		   <label for="name">Name</label>
+		   <input type="text" id="name" />
+		 </div>
+		 <div>
+		   <label for="email">Email <a href="#emailInfo" data-rel="popup" data-role="button" class="ui-icon-alt" data-inline="true" data-transition="pop" data-icon="info" data-iconpos="notext">Learn more</a></label>
+		   <input type="text" id="email" />
+			<div data-role="popup" id="emailInfo" class="ui-content" style="max-width:350px;">
+			  <p>If you would like us to be able to follow-up on this story, please provide an email address that we may contact you with if required. Additionally, you will be sent a copy of your submission for your records.</p>
+			</div>
+		 </div>
+		 <div>
+		   <label for="source">Link to story source (required) <a href="#storySourceInfo" data-rel="popup" data-role="button" class="ui-icon-alt" data-inline="true" data-transition="pop" data-icon="info" data-iconpos="notext">Learn more</a></label>
+		   <input type="text" id="source" />
+			<div data-role="popup" id="storySourceInfo" class="ui-content" style="max-width:350px;">
+			  <p>Please provide the website address of the source for this Out There story. We will always research a potential Out There story before we consider it for publication on unknowncountry.com, and we always provide links to story sources.</p>
+			</div>
+		 </div>
+		 <div>
+		   <label for="add_details">Additional Details <a href="#addDetailsInfo" data-rel="popup" data-role="button" class="ui-icon-alt" data-inline="true" data-transition="pop" data-icon="info" data-iconpos="notext">Learn more</a></label>
+			<textarea id="add_details" rows="5"></textarea>
+			<div data-role="popup" id="addDetailsInfo" class="ui-content" style="max-width:350px;">
+			  <p>Please provide any additional details for the Out There story that you think are useful.</p>
+			</div>
+		 </div>
+		 <div data-role="controlgroup">
+		   <a href="#" id="node_submit" data-role="button" data-theme="b" data-icon="plus">Save</a>
+		   <a href="#" id="node_cancel" data-role="button" data-icon="minus">Cancel</a>
+		 </div>   
+    </div>    
+</div><!-- /page -->
