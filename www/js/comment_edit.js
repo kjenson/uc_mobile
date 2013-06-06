@@ -40,14 +40,14 @@ $('#drupalgap_comment_edit').on('pageshow',function(){
 
 $('#comment_submit').on('click',function(){
 	try {
-		var subject = $('#comment_subject').val();
+		//var subject = $('#comment_subject').val();
 	  	var body = $('#comment_body').val();
 	  	if (drupalgap.comment_edit.cid) {
 			// Existing comment.
 	  		drupalgap.services.comment.update.call({
 	  			'comment':{
 	  				'cid':drupalgap.comment_edit.cid,
-					'subject':subject,
+					//'subject':subject,
 					'comment':body,
 	  			},
 				'success':function(result){
@@ -60,7 +60,7 @@ $('#comment_submit').on('click',function(){
 			drupalgap.services.comment.create.call({
 				'comment':{
 					'nid':drupalgap.node.nid,
-					'subject':subject,
+					//'subject':subject,
 					'comment':body,
 				},
 				'success':function(result){

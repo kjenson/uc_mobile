@@ -7,10 +7,24 @@ $('#drupalgap_node').on('pageshow', function(){
 	drupalgap.services.node.retrieve.call({
 		'nid':drupalgap.node.nid,
 		'success':function(node){
-			$('#node_type').html(content_types[content_type_id]);
+			//$('#node_type').html(content_types[content_type_id]);
 			$('#node_title').html(node.title);
 			$('#node_content').html(node.content);
             
+            switch (node.comment) {
+				case '1':
+					if (node.comment_count > 0) { $('#node_comments').show(); }
+					break;
+				case '2':
+					if (node.comment_count > 0) { $('#node_comments').show(); }
+					$('#comment_add').show();
+					break;
+			}
+			if ((node.comment == 1 || node.comment == 2) && node.comment_count > 0) {
+				var view_comment_text = 'View ' + node.comment_count + ' ' + drupalgap_format_plural(node.comment_count, 'Comment', 'Comments');
+				$('#node_comments span').html(view_comment_text);
+			}
+			
             if(node.field_dreamland_stream != null && node.field_dreamland_stream.length > 0 && drupalgap.user.uid) {
                 if(node.field_dreamland_stream[0].value) {
                     //var src = node.field_dreamland_stream[0].value;
@@ -79,6 +93,16 @@ $('#drupalgap_node').on('pageshow', function(){
                  fail);
 
     }); */
+    
+    $('#node_comments').on('click', function(){
+		$.mobile.changePage('node_comments.html');
+		return false;
+	});
+	
+	$('#comment_add').on('click', function(){
+		$.mobile.changePage('comment_edit.html');
+		return false;
+	});
 });
 
 function fail(evt) {

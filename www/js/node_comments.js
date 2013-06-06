@@ -15,12 +15,12 @@ $('#drupalgap_node_comments').on('pageshow',function(){
 					'success':function(results){
 						$.each(results.comments, function(index, object){
 							html = '';
-							if (drupalgap_user_access({'permission':'administer comments'})) {
-								html += '<a href="comment_edit.html" cid="' + object.comment.cid + '" class="node_comment_list_item_edit">EDIT</a>';
-							}
+							//if (drupalgap_user_access({'permission':'administer comments'})) {
+							//	html += '<a href="comment_edit.html" cid="' + object.comment.cid + '" class="node_comment_list_item_edit">EDIT</a>';
+							//}
 							html += object.comment.timestamp + "<br />" +
 							'Author: ' + object.comment.name + "<br />"+ 
-							'Subject: ' + object.comment.subject + "<br />" +
+							//'Subject: ' + object.comment.subject + "<br />" +
 							'Comment:<br />' + object.comment.comment + "<hr />"; 
 							$("#node_comments_list").append($("<li></li>",{"html":html}));
 						});
