@@ -59,6 +59,7 @@ $('#comment_submit').on('click',function(){
 			// New comment.
 			drupalgap.services.comment.create.call({
 				'comment':{
+					'uid': drupalgap.user.uid,
 					'nid':drupalgap.node.nid,
 					//'subject':subject,
 					'comment':body,

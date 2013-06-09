@@ -7,7 +7,7 @@ $('#drupalgap_node').on('pageshow', function(){
 	drupalgap.services.node.retrieve.call({
 		'nid':drupalgap.node.nid,
 		'success':function(node){
-			//$('#node_type').html(content_types[content_type_id]);
+			$('#node_type').html(content_types[content_type_id]);
 			$('#node_title').html(node.title);
 			$('#node_content').html(node.content);
             
@@ -17,7 +17,7 @@ $('#drupalgap_node').on('pageshow', function(){
 					break;
 				case '2':
 					if (node.comment_count > 0) { $('#node_comments').show(); }
-					$('#comment_add').show();
+					//$('#comment_add').show();
 					break;
 			}
 			if ((node.comment == 1 || node.comment == 2) && node.comment_count > 0) {
@@ -32,6 +32,10 @@ $('#drupalgap_node').on('pageshow', function(){
                    
                     initAudioPlayer(src);                         
                 }
+            }
+            
+            if(drupalgap.user.uid) {
+            	$('#comment_add').show();
             }
             /*
             if(node.field_dreamland_mp3 != null &&  node.field_dreamland_mp3.length > 0 && drupalgap.user.uid) {

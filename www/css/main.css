@@ -12,3 +12,7 @@
 #node_content img {
     margin: 5px;
 }
+
+#node_comments_list li {
+	border: 0px;
+}
