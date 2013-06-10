@@ -25,11 +25,11 @@ $('#drupalgap_node').on('pageshow', function(){
 				$('#node_comments span').html(view_comment_text);
 			}
 			
-            if(node.field_dreamland_stream != null && node.field_dreamland_stream.length > 0 && drupalgap.user.uid) {
-                if(node.field_dreamland_stream[0].value) {
-                    //var src = node.field_dreamland_stream[0].value;
-                    var src = 'http://www.strieber.com/streaming/042613.mp3';
-                   
+            if(node.field_dreamland_mp3 != null && node.field_dreamland_mp3.length > 0 && drupalgap.user.uid) {
+                if(node.field_dreamland_mp3[0].filepath) {
+                    var src = node.field_dreamland_mp3[0].filepath;                    
+                    src = sitename + src.replace('subscribers', 'stream');                    
+                    $('#node_content').append(src);                    
                     initAudioPlayer(src);                         
                 }
             }
@@ -37,66 +37,10 @@ $('#drupalgap_node').on('pageshow', function(){
             if(drupalgap.user.uid) {
             	$('#comment_add').show();
             }
-            /*
-            if(node.field_dreamland_mp3 != null &&  node.field_dreamland_mp3.length > 0 && drupalgap.user.uid) {
-                if(node.field_dreamland_mp3[0].filepath) {
-                    $('#high-quality-mp3').attr('download-url', sitename + node.field_dreamland_mp3[0].filepath);
-                    $('#high-quality-mp3').attr('filename', node.field_dreamland_mp3[0].filename);
-                } else {
-                    $('#high-quality-mp3').hide();
-                }
-            } else {
-                $('#high-quality-mp3').hide();
-            }
-
-            if(node.field_dreamland_mp3_low != null && node.field_dreamland_mp3_low.length > 0 && drupalgap.user.uid) {
-                if(node.field_dreamland_mp3_low[0].filepath) {
-                    $('#low-quality-mp3').attr('download-url', sitename + node.field_dreamland_mp3_low[0].filepath);
-                    $('#low-quality-mp3').attr('filename', node.field_dreamland_mp3_low[0].filename);
-                } else {
-                    $('#low-quality-mp3').hide();
-                }
-            } else {
-                $('#low-quality-mp3').hide();
-            }
-
-            $('#node-mp3-files').show(); */
+            
 		}
 	});
-    /*
-    $('.download-file').live('click', function () {
-        var src = $(this).attr('download-url');
-        var filename = $(this).attr('filename');
-
-        window.requestFileSystem(
-                 LocalFileSystem.PERSISTENT, 0,
-                 function onFileSystemSuccess(fileSystem) {
-                 fileSystem.root.getFile(
-                             "dummy.html", {create: true, exclusive: false},
-                             function gotFileEntry(fileEntry){
-                             var sPath = fileEntry.fullPath.replace("dummy.html","");
-                             var fileTransfer = new FileTransfer();
-                             fileEntry.remove();
-
-                             fileTransfer.download(
-                                       src,
-                                       sPath + filename,
-                                       function(theFile) {
-                                           console.log("download complete: " + theFile.toURI());
-                                           //showLink(theFile.toURI());
-                                       },
-                                       function(error) {
-                                           console.log("download error source " + error.source);
-                                           console.log("download error target " + error.target);
-                                           console.log("upload error code: " + error.code);
-                                       }
-                                       );
-                             },
-                             fail);
-                 },
-                 fail);
-
-    }); */
+    
     
     $('#node_comments').on('click', function(){
 		$.mobile.changePage('node_comments.html');
