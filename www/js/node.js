@@ -29,7 +29,16 @@ $('#drupalgap_node').on('pageshow', function(){
                 if(node.field_dreamland_mp3[0].filepath) {
                     var src = node.field_dreamland_mp3[0].filepath;                    
                     src = sitename + src.replace('subscribers', 'stream');                    
-                    $('#node_content').append(src);                    
+                    
+                    $("#media_dur").html("--");
+        			$("#audio_position").html("--");
+                    
+                    if(my_media) {
+                    	my_media.release();
+                    }
+                    
+                    my_media = new Media(src, onSuccess, onError);
+                                        
                     initAudioPlayer(src);                         
                 }
             }

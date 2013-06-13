@@ -7,4 +7,5 @@ content_types["revelations"] = "Revelations";
 content_types["dreamland"] = "Dreamland";
 
 var content_type_id = null;
-var sitename = 'http://www.staging-unknowncountry.com/'
+var sitename = 'http://www.staging-unknowncountry.com/';
+var my_media = null;
