@@ -7,7 +7,7 @@ var dur = -1;
 var is_paused = true;
 //Set audio position on page
 function setAudioPosition(position) {
-    $("#audio_position").html(position + " sec");
+    $("#audio_position").html(formatTimer(position));
 }
 
 //onSuccess Callback
@@ -34,6 +34,23 @@ function onError(error) {
     $('#audio-player').hide();
 }
 
+function formatTimer(seconds) {
+	if (seconds <= 0)
+    	return '00:00';
+    
+    var minutes = Math.floor(seconds / 60);
+    
+    if (minutes < 10)
+        minutes = '0' + minutes;
+
+    seconds = seconds % 60;
+    
+    if (seconds < 10)
+    	seconds = '0' + seconds;
+
+        return minutes + ':' + seconds;
+ }
+   
 function playAudio(src) {    
     if (is_paused) {   
     	is_paused = false;        	
@@ -54,7 +71,7 @@ function playAudio(src) {
                                 dur = my_media.getDuration();
                                 if (dur > 0) {
                                     dur = Math.round(dur);
-                                    $("#media_dur").html(dur);
+                                    $("#media_dur").html(formatTimer(dur));
                                 }
                             }
                         }
@@ -89,6 +106,6 @@ function stopAudio() {
         clearInterval(mediaTimer);
         mediaTimer = null;
     }
-    is_paused = false;
+    is_paused = true;
     dur = 0;
 }

@@ -1,6 +1,18 @@
 $('#drupalgap_node').on('pagebeforeshow', function(){
 	$('#node_comments').hide();
 	$('#comment_add').hide();
+	
+	$("#media_dur").html("--");
+	$("#audio_position").html("--");	
+     
+});
+
+$('#drupalgap_node').on('pageremove', function () {	               
+    if(my_media) {
+    	my_media.stop();
+    	is_paused = true;
+    	my_media = null;    	
+    }
 });
 
 $('#drupalgap_node').on('pageshow', function(){
@@ -29,13 +41,6 @@ $('#drupalgap_node').on('pageshow', function(){
                 if(node.field_dreamland_mp3[0].filepath) {
                     var src = node.field_dreamland_mp3[0].filepath;                    
                     src = sitename + src.replace('subscribers', 'stream');                    
-                    
-                    $("#media_dur").html("--");
-        			$("#audio_position").html("--");
-                    
-                    if(my_media) {
-                    	my_media.release();
-                    }
                     
                     my_media = new Media(src, onSuccess, onError);
                                         
