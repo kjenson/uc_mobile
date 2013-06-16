@@ -9,7 +9,7 @@ $('#drupalgap_node_comments').on('pageshow',function(){
 			'nid':drupalgap.node.nid,
 			'success':function(node){
 				$('#node_title').html(node.title);
-				if (node. == 2 && drupalgap.user.uid) { $('#node_comments_add').show(); }
+				if (node.comment == 2 && drupalgap.user.uid) { $('#node_comments_add').show(); }
 				drupalgap.views_datasource.call({
 					'path':'drupalgap/views_datasource/drupalgap_comments/' + node.nid,
 					'success':function(results){

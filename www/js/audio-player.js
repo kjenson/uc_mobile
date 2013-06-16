@@ -31,7 +31,7 @@ function onError(error) {
     my_media = null;
     is_paused = false;
     setAudioPosition("0"); */
-    $('#audio-player').hide();
+    alert('Error in streaming audio.');    
 }
 
 function playAudio(src) {    

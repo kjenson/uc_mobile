@@ -2,14 +2,14 @@ $('#drupalgap_dashboard').on('pagebeforeshow',function(){
 	try {	
         $('#logout-btn, #login-btn').hide();
         
-		if (drupalgap.user.uid == 0) {
-			$('#login-btn').show();
-			$('#logout-btn').hide();
-        }
-        else {
-        	$('#login-btn').hide();
+		if (drupalgap.user.uid) {
+			$('#login-btn').hide();
 			$('#logout-btn').show();
         	$('#main-header h1').html("Hi, " + drupalgap.user.name);
+        }
+        else {
+        	$('#login-btn').show();
+			$('#logout-btn').hide();
         }		
 	}
 	catch (error) {
