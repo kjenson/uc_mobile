@@ -13,10 +13,6 @@
     margin: 5px;
 }
 
-#node_comments_list li {
-	border: 0px;
-}
-
 .ui-loader-background {
     width:100%;
     height:100%;
@@ -33,3 +29,10 @@
 }
 
 input, textarea { -webkit-user-select: text; }
+
+.ui-header .ui-title {
+  	margin-right: 5%;
+    margin-left: 5%;
+  	overflow: visible !important;
+  	white-space: normal !important;
+}

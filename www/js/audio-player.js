@@ -72,8 +72,10 @@ function playAudio(src) {
                                 if (dur > 0) {
                                     dur = Math.round(dur);
                                     $("#media_dur").html(formatTimer(dur));
+                                } else {
+                                	$("#media_dur").html('Loading...');
                                 }
-                            }
+                            } 
                         }
                     },
                     // error callback

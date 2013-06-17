@@ -21,10 +21,10 @@ $('#drupalgap_node_comments').on('pageshow',function(){
 							html += object.comment.timestamp + "<br />" +
 							'Author: ' + object.comment.name + "<br />"+ 
 							//'Subject: ' + object.comment.subject + "<br />" +
-							'Comment:<br />' + object.comment.comment + "<hr />"; 
+							'Comment:<br />' + object.comment.comment; 
 							$("#node_comments_list").append($("<li></li>",{"html":html}));
 						});
-						$("#node_comments_list").listview("destroy").listview();
+						$("#node_comments_list").listview('refresh');
 					}
 				});
 			}
