@@ -1,0 +1,30 @@
+<div data-role="page" id="drupalgap_node">
+  <script type="text/javascript" charset="utf-8" src="js/node.js"></script>
+    <div data-role="header">
+      <a href="dashboard.html" data-role="button" data-icon="home" data-mini="true" data-inline="true" class="ui-btn-left">Home</a>
+      <h1 id="node_type"></h1>
+      <a href="content-list.html" data-role="button" data-icon="back" data-mini="true" id="back-to-list" data-inline="true" class="ui-btn-right">Back</a>
+    </div><!-- /header -->
+    <div data-role="header" class="mast-header">
+
+    </div>
+    <div data-role="header" data-theme="b">
+      <h1 id="node_title">&nbsp;</h1>
+    </div><!-- /header -->
+    <div data-role="content" id="audio-player" data-theme="a">
+        <a href="#" data-role="button" data-icon="play" id="playaudio" data-iconpos="notext" data-inline="true"></a>
+        <a href="#" data-role="button" data-icon="pause" id="pauseaudio" data-iconpos="notext" data-inline="true"></a>
+        <a href="#" data-role="button" data-icon="stop" id="stopaudio" data-iconpos="notext" data-inline="true"></a>
+        <div data-role="navbar">
+            <ul>
+                <li>Current: <span id="audio_position">0</span></li>
+                <li>Total Time: <span id="media_dur">0</span></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="content" id="node_content"></div><!-- /content -->
+    <div data-role="content">    
+    	<a href="#" data-role="button" id="node_comments" data-theme="b"><span>&nbsp;</span></a>
+  		<a href="#" data-role="button" id="comment_add">Add Comment</a>
+    </div><!-- /content -->
+</div><!-- /page -->
